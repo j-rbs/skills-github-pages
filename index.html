@@ -1,316 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rubin Cyber — Practical, Stage-Based Cybersecurity Consulting</title>
-  <meta name="description" content="Practical, stage-based cybersecurity roadmaps for small to medium businesses. No-nonsense guidance that fits your stage, needs, and budget." />
-  <meta name="theme-color" content="#111827" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Rubin Cyber — Practical, Stage-Based Cybersecurity Consulting" />
-  <meta property="og:description" content="Practical, stage-based cybersecurity roadmaps for SMBs. Avoid vendor hell and technical debt with a clear plan." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.rubincyber.com/" />
-  <meta property="og:image" content="https://dummyimage.com/1200x630/111827/ffffff&text=Rubin+Cyber" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Favicon (emoji-based, works everywhere) -->
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Rubin Cyber — Practical, stage-based cybersecurity consulting</title>
+  <meta name="description" content="Practical, stage-based cybersecurity roadmaps for SMBs. No-nonsense guidance that fits your stage, needs, and budget."/>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🛡️%3C/text%3E%3C/svg%3E">
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Rubin Cyber",
-    "url": "https://www.rubincyber.com",
-    "logo": "https://www.rubincyber.com/favicon.ico",
-    "description": "Stage-based cybersecurity consulting and roadmaps for small to medium businesses.",
-    "areaServed": "AU",
-    "founder": {
-      "@type": "Person",
-      "name": "Julia Rubinstein"
-    },
-    "sameAs": []
-  }
-  </script>
-
-  <!-- Styles -->
-  <style>
-    :root{
-      --bg:#0b1220;         /* dark navy */
-      --panel:#111827;      /* slightly lighter */
-      --muted:#94a3b8;      /* slate-300 */
-      --text:#e5e7eb;       /* gray-200 */
-      --brand:#06b6d4;      /* cyan-500 */
-      --brand-2:#22d3ee;    /* cyan-400 */
-      --ok:#10b981;         /* emerald */
-      --warn:#f59e0b;       /* amber */
-      --danger:#ef4444;     /* red */
-      --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.25);
-      --max:1200px;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:linear-gradient(160deg,var(--bg),#0a0f1a 55%, #0b1220);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;line-height:1.6}
-    a{color:var(--brand)} a:hover{color:var(--brand-2)}
-    .container{max-width:var(--max);margin:auto;padding:0 20px}
-    .nav{position:sticky;top:0;z-index:50;background:rgba(11,18,32,.8);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .brand{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:.2px}
-    .brand .logo{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:radial-gradient(120% 120% at 10% 10%, var(--brand-2),var(--brand));box-shadow:0 4px 14px rgba(34,211,238,.35)}
-    .menu{display:flex;gap:18px;align-items:center}
-    .menu a{color:var(--text);text-decoration:none;opacity:.9}
-    .cta{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#081018;border:0;padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:0 8px 20px rgba(34,211,238,.25)}
-    .hero{padding:80px 0 40px;position:relative;overflow:hidden}
-    .hero h1{font-size:clamp(28px,4vw,48px);line-height:1.15;margin:0 0 14px}
-    .hero p{color:var(--muted);max-width:780px;font-size:clamp(16px,2vw,18px)}
-    .badge{display:inline-flex;gap:8px;align-items:center;background:rgba(6,182,212,.12);color:var(--brand-2);border:1px solid rgba(34,211,238,.35);padding:6px 10px;border-radius:999px;font-size:13px;margin-bottom:14px}
-    .grid{display:grid;gap:18px}
-    .two{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .three{grid-template-columns:repeat(3,minmax(0,1fr))}
-    @media (max-width:900px){.two,.three{grid-template-columns:1fr}}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    .card h3{margin:.2rem 0 .4rem;font-size:18px}
-    .kicker{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:.14em}
-    .list{padding-left:18px;margin:10px 0 0}
-    .list li{margin:8px 0}
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#0e1626;border:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:13px}
-    .section{padding:48px 0}
-    .section h2{font-size:clamp(22px,3vw,32px);margin:0 0 8px}
-    .muted{color:var(--muted)}
-    .foot{border-top:1px solid rgba(255,255,255,.08);padding:24px 0 60px;color:#9aa5b1}
-    .checklist{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-    .check{display:inline-flex;gap:8px;align-items:center;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);color:#a7f3d0;padding:6px 10px;border-radius:10px;font-size:13px}
-    .warn{display:inline-flex;gap:8px;align-items:center;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.3);color:#fde68a;padding:6px 10px;border-radius:10px;font-size:13px}
-    .split{display:grid;gap:22px;grid-template-columns:1.7fr 1fr}
-    @media (max-width:1000px){.split{grid-template-columns:1fr}}
-    .form{display:grid;gap:12px}
-    .input, textarea{width:100%;background:#0a1120;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px 14px;color:var(--text)}
-    textarea{min-height:120px;resize:vertical}
-    .btn{cursor:pointer;display:inline-block;border:0;border-radius:12px;padding:12px 16px;font-weight:700;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#041017;box-shadow:0 10px 24px rgba(34,211,238,.25)}
-    .tagrow{display:flex;gap:8px;flex-wrap:wrap}
-    .mono{font-family:"SFMono-Regular",Consolas,Monaco,monospace;font-size:12px;color:#a8b3c7}
-    .divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.12),transparent);margin:30px 0}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0}
-  </style>
+  <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
-  <!-- NAV -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">🛡️</div>
-        <span>Rubin Cyber</span>
-      </div>
-      <nav class="menu" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#process">Roadmap</a>
-        <a href="#about">About</a>
-        <a href="#contact" class="cta">Get in touch</a>
-      </nav>
-    </div>
-  </header>
+<header class="nav">
+  <div class="container nav-inner">
+    <div class="brand"><div class="logo">🛡️</div><span>Rubin Cyber</span></div>
+    <nav class="menu" aria-label="Primary">
+      <a aria-current="page" href="/">Home</a>
+      <a href="/services.html">Services</a>
+      <a href="/about.html">About</a>
+      <a class="cta" href="/contact.html">Get in touch</a>
+    </nav>
+  </div>
+</header>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <span class="badge">No-nonsense cybersecurity for growing businesses</span>
-      <h1>Practical, stage-based cybersecurity consulting that fits your <em>stage, needs, and budget</em>.</h1>
-      <p>
-        I help small to medium businesses avoid vendor hell and costly technical debt by creating
-        clear cybersecurity roadmaps—from early foundations to mature controls—so your systems scale
-        safely with the business.
-      </p>
-      <div class="checklist">
-        <div class="check">✔ Tailored roadmap</div>
-        <div class="check">✔ Budget-aware solutions</div>
-        <div class="check">✔ Ongoing advisory</div>
-        <div class="warn">⚠ No tool pushing. Strategy first.</div>
-      </div>
-      <div style="margin-top:18px">
-        <a class="btn" href="#contact">Book a quick chat</a>
-        <span class="pill" style="margin-left:10px">Based in Melbourne · Serving AU</span>
-      </div>
-    </div>
-  </section>
+<section class="hero">
+  <div class="container">
+    <span class="badge">No-nonsense cybersecurity for growing businesses</span>
+    <h1>Practical, stage-based cybersecurity consulting that fits your <em>stage, needs, and budget</em>.</h1>
+    <p>I help small to medium businesses avoid vendor hell and costly technical debt by creating clear cybersecurity roadmaps—from early foundations to mature controls—so your systems scale safely with the business.</p>
+  </div>
+</section>
 
-  <!-- SERVICES -->
-  <section id="services" class="section">
-    <div class="container">
-      <h2>Services</h2>
-      <p class="muted">Start simple. Mature as you grow. I meet you where you are and build from there.</p>
-      <div class="grid three" style="margin-top:14px">
-        <article class="card">
-          <div class="kicker">01 · Early-Stage</div>
-          <h3>Kickstart Assessment & Roadmap</h3>
-          <ul class="list">
-            <li>Lightweight risk & posture review</li>
-            <li>90-day action plan aligned to your goals</li>
-            <li>Tool shortlist (no vendor lock-in)</li>
-          </ul>
-          <p class="mono">Typical: 1–2 weeks · Fixed fee</p>
-        </article>
-        <article class="card">
-          <div class="kicker">02 · Build</div>
-          <h3>Foundations Implementation</h3>
-          <ul class="list">
-            <li>Identity & access basics (MFA, SSO, least privilege)</li>
-            <li>Secure device & cloud setup</li>
-            <li>Backups, logging, and response basics</li>
-          </ul>
-          <p class="mono">Typical: 2–6 weeks · Milestone based</p>
-        </article>
-        <article class="card">
-          <div class="kicker">03 · Evolve</div>
-          <h3>Ongoing Advisory</h3>
-          <ul class="list">
-            <li>Quarterly roadmap updates</li>
-            <li>Vendor evaluations & integration sanity checks</li>
-            <li>Security awareness & incident readiness</li>
-          </ul>
-          <p class="mono">Retainer or ad-hoc</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS / ROADMAP -->
-  <section id="process" class="section">
-    <div class="container split">
-      <div>
-        <h2>How the roadmap works</h2>
-        <p class="muted">Clarity first, tools second. We prioritise risks, then add the right controls at the right time.</p>
-        <div class="grid two" style="margin-top:14px">
-          <div class="card">
-            <div class="kicker">Step 1</div>
-            <h3>Discovery</h3>
-            <p>Understand your business model, data, systems, and constraints. No templated checklists.</p>
-          </div>
-          <div class="card">
-            <div class="kicker">Step 2</div>
-            <h3>Prioritise</h3>
-            <p>Map risks to impact. Choose the smallest set of controls that deliver outsized protection.</p>
-          </div>
-          <div class="card">
-            <div class="kicker">Step 3</div>
-            <h3>Implement</h3>
-            <p>Practical actions: MFA/SSO, endpoint basics, backups, logging, vendor reviews, training.</p>
-          </div>
-          <div class="card">
-            <div class="kicker">Step 4</div>
-            <h3>Evolve</h3>
-            <p>Quarterly reviews to keep pace with growth and avoid technical debt and tool sprawl.</p>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="tagrow">
-          <span class="pill">Vendor-neutral</span>
-          <span class="pill">Budget-aware</span>
-          <span class="pill">SMB friendly</span>
-          <span class="pill">Melbourne · AU</span>
-        </div>
-      </div>
-      <aside class="card">
-        <h3>What you get</h3>
+<section class="section">
+  <div class="container">
+    <div class="grid three">
+      <article class="card">
+        <div class="kicker">01 · Early-Stage</div>
+        <h3>Kickstart Assessment & Roadmap</h3>
         <ul class="list">
-          <li>Plain-English summary for leadership</li>
-          <li>90-day plan + 12-month roadmap</li>
-          <li>Tool shortlist & integration guidance</li>
-          <li>Policy & training starter pack</li>
+          <li>Lightweight risk & posture review</li>
+          <li>90-day action plan + 12-month roadmap</li>
+          <li>Vendor-neutral tool shortlist</li>
         </ul>
-        <p class="mono">Optional add-ons: awareness workshop, vendor RFP support, incident drill.</p>
-      </aside>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="section">
-    <div class="container grid two">
-      <div>
-        <h2>About Rubin Cyber</h2>
-        <p>
-          Founded by <strong>Julia Rubinstein</strong> after four years of cybersecurity consulting in Germany
-          (including roles at IBM and SVA) and a B.Sc. in Computer Science. I work directly with founders and
-          teams to align security with growth, brand protection, and budget—no fluff, no tool pushing.
-        </p>
-        <div class="checklist">
-          <div class="check">Candid, no-nonsense advice</div>
-          <div class="check">Stage-based planning</div>
-          <div class="check">Long-term partnership</div>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Focus areas</h3>
+        <p class="mono">Typical: 1–2 weeks · Fixed fee</p>
+      </article>
+      <article class="card">
+        <div class="kicker">02 · Build</div>
+        <h3>Foundations Implementation</h3>
         <ul class="list">
-          <li>Startups & SMBs (early → mid stage)</li>
-          <li>SaaS, e-commerce, professional services</li>
-          <li>Cloud (Microsoft 365 / Google Workspace), identity, endpoints</li>
+          <li>MFA/SSO, least privilege</li>
+          <li>Secure endpoints & cloud basics</li>
+          <li>Backups, logging, response</li>
         </ul>
-        <p class="mono">Pursuing CompTIA Security+ and CISSP to deepen recognised credentials.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="container split">
-      <div>
-        <h2>Let’s talk</h2>
-        <p class="muted">Book a short intro call. Tell me where you are today, and we’ll map the next sensible steps.</p>
-        <form class="form" action="mailto:hello@rubincyber.com" method="post" enctype="text/plain">
-          <label class="sr-only" for="name">Name</label>
-          <input class="input" id="name" name="name" type="text" placeholder="Your name" required>
-
-          <label class="sr-only" for="email">Email</label>
-          <input class="input" id="email" name="email" type="email" placeholder="Your email" required>
-
-          <label class="sr-only" for="msg">Message</label>
-          <textarea id="msg" name="message" placeholder="What would you like help with?"></textarea>
-
-          <button class="btn" type="submit">Send message</button>
-          <p class="mono">Prefer email? <a href="mailto:hello@rubincyber.com">hello@rubincyber.com</a></p>
-        </form>
-      </div>
-      <aside class="card">
-        <h3>Quick links</h3>
+        <p class="mono">Typical: 2–6 weeks · Milestone based</p>
+      </article>
+      <article class="card">
+        <div class="kicker">03 · Evolve</div>
+        <h3>Ongoing Advisory</h3>
         <ul class="list">
-          <li><a href="#services">Services</a></li>
-          <li><a href="#process">Roadmap</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="/privacy.html">Privacy</a> (optional)</li>
+          <li>Quarterly roadmap updates</li>
+          <li>Vendor evaluations & integrations</li>
+          <li>Awareness & incident drills</li>
         </ul>
-        <div class="divider"></div>
-        <p class="mono">ABN / ASIC details can be listed here once finalised.</p>
-      </aside>
+        <p class="mono">Retainer or ad-hoc</p>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="foot">
-    <div class="container">
-      <div class="grid two">
-        <div>
-          <strong>Rubin Cyber</strong><br/>
-          Practical, stage-based cybersecurity consulting.<br/>
-          <span class="mono">© <span id="year"></span> Rubin Cyber · Melbourne, AU</span>
-        </div>
-        <div style="text-align:right">
-          <a class="pill" href="#top">Back to top ↑</a>
-        </div>
+<footer class="foot">
+  <div class="container">
+    <div class="grid two">
+      <div>
+        <strong>Rubin Cyber</strong><br/>
+        Practical, stage-based cybersecurity consulting.<br/>
+        <span class="mono">© <span id="year"></span> Rubin Cyber · Melbourne, AU</span>
       </div>
+      <div style="text-align:right"><a class="pill" href="#top">Back to top ↑</a></div>
     </div>
-  </footer>
-
-  <script>
-    // Small helpers: current year, focus outline for keyboard users only.
-    document.getElementById('year').textContent = new Date().getFullYear();
-    (function(){
-      function handleFirstTab(e){ if (e.key === 'Tab'){ document.body.classList.add('user-is-tabbing'); window.removeEventListener('keydown', handleFirstTab); } }
-      window.addEventListener('keydown', handleFirstTab);
-    })();
-  </script>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
 </body>
 </html>
