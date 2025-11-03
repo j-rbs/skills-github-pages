@@ -238,4 +238,7 @@ body {
   .hero h1 {
     font-size: 1.8rem;
   }
+  .text-right { text-align: right; }
+  .mt-8 { margin-top: 8px; }
+  .ml-10 { margin-left: 10px; }
 }
