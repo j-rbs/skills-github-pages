@@ -179,3 +179,99 @@ body {
     font-size: 1.9rem;
   }
 }
+
+/* === Rubin Cyber – Visual fixes & Arctic Blue accent === */
+:root{
+  --blue: #4C8BF5;     /* Arctic Blue */
+  --blue-600: #6EA2FA; /* hover / lighter */
+  --grey-900:#1c1e22;
+  --grey-850:#23262b;
+  --field-bg:#1f2329;
+  --field-border:#333843;
+}
+
+/* Logo size & brand color */
+.brand { color: var(--blue); }
+.brand img.logo {
+  height: 28px;   /* smaller */
+  width: 28px;
+  border-radius: 8px; /* optional, if your logo has a square bg */
+}
+
+/* Links (kill default purple/blue) */
+a { color: var(--blue); text-decoration: none; }
+a:hover { color: var(--blue-600); text-decoration: underline; }
+
+/* Primary CTA button */
+.nav .cta {
+  background: var(--blue);
+  color: var(--grey-900);
+}
+.nav .cta:hover { background: var(--blue-600); }
+
+/* Badges & headings accents */
+.badge { background: var(--blue); color: var(--grey-900); }
+.card h2 { color: var(--blue); }
+
+/* --- Modern contact form --- */
+.form-card {
+  background: #26292f;
+  border: 1px solid #32363d;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+.form-grid .full { grid-column: 1 / -1; }
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: #cfd3da;
+  margin-bottom: 0.35rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  background: var(--field-bg);
+  color: #e6e9ef;
+  border: 1px solid var(--field-border);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+input::placeholder, textarea::placeholder { color: #9aa2af; }
+
+input:focus, textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(76,139,245,0.15);
+}
+
+button.btn {
+  appearance: none;
+  border: 0;
+  border-radius: 8px;
+  background: var(--blue);
+  color: var(--grey-900);
+  padding: 0.75rem 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s ease, transform .08s ease;
+}
+button.btn:hover { background: var(--blue-600); }
+button.btn:active { transform: translateY(1px); }
+
+.helper { color: #b6bac4; font-size: 0.85rem; margin-top: 0.75rem; }
+
+/* Mobile tweaks */
+@media (max-width: 700px){
+  .form-grid { grid-template-columns: 1fr; }
+}
