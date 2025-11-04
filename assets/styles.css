@@ -1,4 +1,4 @@
-/* ---------- Reset & Base ---------- */
+/* ---------- Global Reset ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -10,232 +10,165 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: #1a1a1a;
-  background-color: #fafafa;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #0e1015;
+  color: #e4e7ec;
   line-height: 1.6;
 }
 
-/* ---------- Layout ---------- */
+/* ---------- Layout Containers ---------- */
 .container {
   width: 90%;
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
-}
-
-.section {
-  padding: 4rem 0;
 }
 
 /* ---------- Navigation ---------- */
 .nav {
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  background: #151821;
+  border-bottom: 1px solid #222630;
+  padding: 1rem 0;
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 10;
 }
 
 .nav-inner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
 }
 
-.brand {
+.nav .brand {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  color: #00c7b7;
 }
 
-.logo {
-  font-size: 1.4rem;
-  margin-right: 0.5rem;
-}
-
-.menu a {
+.nav .menu a {
+  margin-left: 1.5rem;
   text-decoration: none;
-  color: #1a1a1a;
-  margin-left: 1rem;
+  color: #d4d7dd;
   transition: color 0.2s ease;
 }
 
-.menu a:hover,
-.menu a[aria-current="page"] {
-  color: #0077ff;
+.nav .menu a:hover,
+.nav .menu a[aria-current="page"] {
+  color: #00c7b7;
 }
 
-.menu .cta {
-  background: #0077ff;
-  color: #fff;
+.nav .cta {
+  background: #00c7b7;
+  color: #0e1015;
   padding: 0.4rem 0.9rem;
   border-radius: 6px;
-  margin-left: 1.5rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
 }
 
-.menu .cta:hover {
-  background: #005bcc;
+.nav .cta:hover {
+  background: #03e0cc;
 }
 
 /* ---------- Hero Section ---------- */
 .hero {
   padding: 6rem 0 4rem;
+  background: linear-gradient(145deg, #10131c, #0e1015 60%);
   text-align: center;
-  background: #f4f7fb;
 }
 
 .hero h1 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+  color: #ffffff;
 }
 
-.hero p {
-  color: #555;
-  font-size: 1.1rem;
+.hero .muted {
+  color: #adb3bf;
+  max-width: 700px;
+  margin: 0.5rem auto 0;
 }
 
-.badge {
-  display: inline-block;
-  background: #0077ff10;
-  color: #0077ff;
-  border: 1px solid #0077ff30;
-  border-radius: 20px;
-  padding: 0.3rem 1rem;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-}
-
-/* ---------- Grid & Cards ---------- */
-.grid {
-  display: grid;
-  gap: 2rem;
+/* ---------- Section ---------- */
+.section {
+  padding: 4rem 0;
 }
 
 .grid.two {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
-.grid.three {
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
+/* ---------- Cards ---------- */
 .card {
-  background: #fff;
+  background: #161922;
+  border: 1px solid #1f232e;
   padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.card h2,
-.card h3 {
-  margin-bottom: 0.75rem;
+.card h2 {
+  color: #00c7b7;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
 }
 
 .list {
-  list-style: none;
-  margin-top: 0.5rem;
+  list-style: disc;
+  margin-left: 1.2rem;
+  color: #d4d7dd;
 }
 
-.list li {
-  margin-bottom: 0.5rem;
-  padding-left: 1rem;
-  position: relative;
-}
-
-.list li::before {
-  content: "•";
-  color: #0077ff;
-  position: absolute;
-  left: 0;
-}
-
-.kicker {
+/* ---------- Buttons, Badges ---------- */
+.badge {
+  display: inline-block;
+  background: #00c7b7;
+  color: #0e1015;
+  padding: 0.25rem 0.7rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
   text-transform: uppercase;
-  font-size: 0.85rem;
-  color: #0077ff;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.muted {
-  color: #666;
-}
-
-.mono {
-  font-family: "Courier New", monospace;
-  font-size: 0.9rem;
-  color: #666;
-}
-
-/* ---------- Forms ---------- */
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.input {
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  padding: 0.75rem;
-  font-size: 1rem;
-}
-
-.input:focus {
-  outline: none;
-  border-color: #0077ff;
-}
-
-.btn {
-  background: #0077ff;
-  color: #fff;
-  border: none;
-  padding: 0.75rem;
-  border-radius: 6px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.btn:hover {
-  background: #005bcc;
+  letter-spacing: 0.05em;
+  font-weight: 600;
 }
 
 /* ---------- Footer ---------- */
 .foot {
-  background: #fff;
-  border-top: 1px solid #eee;
-  padding: 2rem 0;
-  margin-top: 3rem;
-}
-
-.foot .mono {
-  color: #999;
-}
-
-.pill {
-  background: #0077ff;
-  color: #fff;
-  text-decoration: none;
-  padding: 0.3rem 0.8rem;
-  border-radius: 999px;
+  background: #151821;
+  border-top: 1px solid #222630;
+  color: #9ea3ad;
+  padding: 2.5rem 0;
   font-size: 0.9rem;
 }
 
-/* ---------- Responsive tweaks ---------- */
+.foot a {
+  color: #00c7b7;
+  text-decoration: none;
+}
+
+.foot a:hover {
+  text-decoration: underline;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* ---------- Small Screen Adjustments ---------- */
 @media (max-width: 700px) {
   .nav-inner {
     flex-direction: column;
   }
   .menu {
-    margin-top: 0.5rem;
-  }
-  .hero {
-    padding: 4rem 1rem;
+    margin-top: 1rem;
   }
   .hero h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
   }
 }
