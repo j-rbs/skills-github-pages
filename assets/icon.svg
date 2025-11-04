@@ -1,7 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<!-- Rubin Cyber icon (Rubin Blue) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Rubin Cyber logo">
+  <!-- Background tile -->
   <rect width="64" height="64" rx="12" fill="#4C8BF5"/>
-  <path d="M32 10l18 8v10c0 10-6.5 19-18 24-11.5-5-18-14-18-24V18l18-8z"
-        fill="#1c1e22" stroke="#E6ECFF" stroke-width="2"/>
-  <path d="M24 28h16M24 36h10"
-        stroke="#E6ECFF" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Inner shield (subtle depth on dark theme) -->
+  <path
+    d="M32 11.5l17 7.6v9.6c0 9.3-6.1 17.6-17 22.2C21.1 46.3 15 38 15 28.7v-9.6l17-7.6z"
+    fill="#0F1217" opacity="0.95"/>
+
+  <!-- Shield details (crisp, readable at small sizes) -->
+  <g fill="none" stroke="#EAF0FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- horizontal “bar” -->
+    <path d="M24 29.5h16"/>
+    <!-- short baseline -->
+    <path d="M24 36h10"/>
+  </g>
+
+  <!-- Optional tiny highlight at top-left corner of tile (very subtle) -->
+  <rect x="10" y="8" width="12" height="8" rx="4"
+        fill="#FFFFFF" opacity="0.14"/>
 </svg>
