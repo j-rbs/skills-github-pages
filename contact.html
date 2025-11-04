@@ -24,7 +24,7 @@
   <link rel="icon" type="image/svg+xml" href="./assets/icon.svg?v=12">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="./site.webmanifest">
-  <link rel="stylesheet" href="./assets/styles.css?v=17">
+  <link rel="stylesheet" href="./assets/styles.css?v=18">
 
   <script type="application/ld+json">
   {
@@ -39,84 +39,83 @@
 </head>
 <body>
   <header class="nav">
-  <div class="container nav-inner">
-    <div class="brand">
-      <img class="logo" src="./assets/icon.svg?v=12" alt="Rubin Cyber logo">
-      <span>Rubin&nbsp;Cyber</span>
-    </div>
-    <nav class="menu" aria-label="Primary">
-      <a class="navlink" href="./index.html">Home</a>
-      <a class="navlink" href="./services.html">Services</a>
-      <a class="navlink" href="./about.html">About</a>
-      <a class="cta" href="./contact.html" aria-current="page">Get in touch</a>
-    </nav>
-  </div>
-</header>
-
-
-<section class="hero">
-  <div class="container">
-    <span class="badge">Let’s talk</span>
-    <h1>Tell me where you are today. We’ll map the next sensible steps.</h1>
-    <p class="muted">Prefer email? <a href="mailto:hello@rubincyber.com">hello@rubincyber.com</a></p>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container grid two">
-    <!-- Modern form card -->
-    <div class="form-card">
-      <h2 style="margin-bottom:1rem;">Contact</h2>
-
-      <!-- Replace the action URL with your Formspree/Netlify endpoint when ready -->
-      <form action="mailto:hello@rubincyber.com" method="post" enctype="text/plain" novalidate>
-        <div class="form-grid">
-          <div>
-            <label for="name">Your name</label>
-            <input id="name" name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" required>
-          </div>
-          <div>
-            <label for="email">Your email</label>
-            <input id="email" name="_replyto" type="email" autocomplete="email" placeholder="you@company.com" required>
-          </div>
-          <div class="full">
-            <label for="msg">What would you like help with?</label>
-            <textarea id="msg" name="message" rows="6" placeholder="Briefly describe your situation…"></textarea>
-          </div>
-          <div class="full">
-            <button class="btn" type="submit">Send message</button>
-          </div>
-        </div>
-        <p class="helper">No newsletter, no spam — just a response within 1–2 business days.</p>
-      </form>
-    </div>
-
-    <aside class="card">
-      <h2>Details</h2>
-      <ul class="list">
-        <li>Based in Melbourne, AU</li>
-        <li>Email: <a href="mailto:hello@rubincyber.com">hello@rubincyber.com</a></li>
-        <li>ABN / ASIC details (when ready)</li>
-      </ul>
-    </aside>
-  </div>
-</section>
-
-<footer class="foot">
-  <div class="container">
-    <div class="grid two">
-      <div>
-        <strong>Rubin Cyber</strong><br>
-        Practical, stage-based cybersecurity consulting.<br>
-        <span class="mono">© <span id="year"></span> Rubin Cyber · Melbourne, AU</span>
+    <div class="container nav-inner">
+      <div class="brand">
+        <img class="logo" src="./assets/icon.svg?v=12" alt="Rubin Cyber logo">
+        <span>Rubin&nbsp;Cyber</span>
       </div>
-      <div class="text-right"><a class="pill" href="#top">Back to top ↑</a></div>
+      <nav class="menu" aria-label="Primary">
+        <a class="navlink" href="./index.html">Home</a>
+        <a class="navlink" href="./services.html">Services</a>
+        <a class="navlink" href="./about.html">About</a>
+        <a class="cta" href="./contact.html" aria-current="page">Get in touch</a>
+      </nav>
     </div>
-  </div>
-</footer>
+  </header>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+  <section class="hero">
+    <div class="container">
+      <span class="badge">Let’s talk</span>
+      <h1>Tell me where you are today. We’ll map the next sensible steps.</h1>
+      <p class="muted">Prefer email? <a href="mailto:hello@rubincyber.com">hello@rubincyber.com</a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid two">
+      <!-- Modern form card -->
+      <div class="form-card">
+        <h2 style="margin-bottom:1rem;">Contact</h2>
+
+        <form action="https://formspree.io/f/xpwogvar" method="post">
+          <input type="hidden" name="_redirect" value="https://rubincyber.com/thank-you.html">
+          <div class="form-grid">
+            <div>
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" required>
+            </div>
+            <div>
+              <label for="email">Your email</label>
+              <input id="email" name="_replyto" type="email" autocomplete="email" placeholder="you@company.com" required>
+            </div>
+            <div class="full">
+              <label for="msg">What would you like help with?</label>
+              <textarea id="msg" name="message" rows="6" placeholder="Briefly describe your situation…" required></textarea>
+            </div>
+            <div class="full">
+              <button class="btn" type="submit">Send message</button>
+            </div>
+          </div>
+          <p class="helper">No newsletter, no spam — just a response within 1–2 business days.</p>
+        </form>
+      </div>
+
+      <aside class="card">
+        <h2>Details</h2>
+        <ul class="list">
+          <li>Based in Melbourne, AU</li>
+          <li>Email: <a href="mailto:hello@rubincyber.com">hello@rubincyber.com</a></li>
+          <li>ABN / ASIC details (when ready)</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="container">
+      <div class="grid two">
+        <div>
+          <strong>Rubin Cyber</strong><br>
+          Practical, stage-based cybersecurity consulting.<br>
+          <span class="mono">© <span id="year"></span> Rubin Cyber · Melbourne, AU</span>
+        </div>
+        <div class="text-right"><a class="pill" href="#top">Back to top ↑</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
