@@ -197,6 +197,11 @@ body {
   width: 28px;
   border-radius: 8px; /* optional, if your logo has a square bg */
 }
+.brand span {
+  color: #4C8BF5;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
 
 /* Links (kill default purple/blue) */
 a { color: var(--blue); text-decoration: none; }
