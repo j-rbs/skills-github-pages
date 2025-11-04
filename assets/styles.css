@@ -1,6 +1,7 @@
 :root{
-  --blue:#4C8BF5;           /* Rubin Blue */
+  --blue:#4C8BF5;
   --blue-hover:#6EA2FA;
+  --blue-dark:#18386F;       /* new darker blue for hover/active text */
   --text:#EAEAEA;
   --bg:#1C1E22;
   --grey-900:#1C1E22;
@@ -55,15 +56,13 @@ img{display:block;max-width:100%}
   transform:scaleX(0); transform-origin:left; transition:transform .18s ease;
 }
 .menu a.navlink:hover::after{transform:scaleX(1)}
-
-/* hover/active color for links */
 .menu a.navlink:hover, .menu a.navlink:focus{color:var(--blue)}
 
-/* keep active page blue */
-.menu a[aria-current="page"]{color:var(--blue)}
-.menu a[aria-current="page"].navlink::after{transform:scaleX(1)}
+/* keep active page blue AND underlined */
+.menu a.navlink[aria-current="page"]{color:var(--blue)}
+.menu a.navlink[aria-current="page"]::after{transform:scaleX(1)}
 
-/* CTA button (never invert text color) */
+/* CTA button ------------------------------------------------------ */
 .menu .cta{
   background:var(--blue);
   color:#fff !important;
@@ -71,12 +70,25 @@ img{display:block;max-width:100%}
   border-radius:10px;
   font-weight:600;
   letter-spacing:.02em;
-  transition:background .2s ease, transform .08s ease;
+  transition:background .2s ease, transform .08s ease, color .1s ease;
 }
-.menu .cta:hover{background:var(--blue-hover); color:#fff !important; transform:translateY(-1px)}
-.menu .cta:active,
+/* Hover: slightly lighter background, darker text */
+.menu .cta:hover{
+  background:var(--blue-hover);
+  color:var(--blue-dark) !important;
+  transform:translateY(-1px);
+}
+/* Click: flash darker blue text briefly */
+.menu .cta:active{
+  color:var(--blue-dark) !important;
+  transform:none;
+}
+/* Focus/Visited reset */
 .menu .cta:focus,
-.menu .cta:visited{background:var(--blue); color:#fff !important; transform:none}
+.menu .cta:visited{
+  background:var(--blue);
+  color:#fff !important;
+}
 .menu .cta::after{display:none !important}
 
 /* HERO ------------------------------------------------------------ */
