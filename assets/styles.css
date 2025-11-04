@@ -1,4 +1,4 @@
-/* ---------- Global Reset ---------- */
+/* ---------- Reset ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -11,12 +11,12 @@ html {
 
 body {
   font-family: 'Inter', system-ui, sans-serif;
-  background-color: #0e1015;
+  background-color: #1c1e22; /* deep, elegant dark grey */
   color: #e4e7ec;
   line-height: 1.6;
 }
 
-/* ---------- Layout Containers ---------- */
+/* ---------- Layout ---------- */
 .container {
   width: 90%;
   max-width: 1100px;
@@ -25,12 +25,13 @@ body {
 
 /* ---------- Navigation ---------- */
 .nav {
-  background: #151821;
-  border-bottom: 1px solid #222630;
+  background: #23262b;
+  border-bottom: 1px solid #2e3238;
   padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 10;
+  backdrop-filter: blur(6px);
 }
 
 .nav-inner {
@@ -45,38 +46,38 @@ body {
   gap: 0.5rem;
   font-weight: 600;
   font-size: 1.2rem;
-  color: #00c7b7;
+  color: #9bb0c8;
 }
 
 .nav .menu a {
   margin-left: 1.5rem;
   text-decoration: none;
-  color: #d4d7dd;
-  transition: color 0.2s ease;
+  color: #cfd3da;
+  transition: color 0.25s ease;
 }
 
 .nav .menu a:hover,
 .nav .menu a[aria-current="page"] {
-  color: #00c7b7;
+  color: #9bb0c8;
 }
 
 .nav .cta {
-  background: #00c7b7;
-  color: #0e1015;
-  padding: 0.4rem 0.9rem;
+  background: #9bb0c8;
+  color: #1c1e22;
+  padding: 0.45rem 1rem;
   border-radius: 6px;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .nav .cta:hover {
-  background: #03e0cc;
+  background: #a8bed4;
 }
 
-/* ---------- Hero Section ---------- */
+/* ---------- Hero ---------- */
 .hero {
   padding: 6rem 0 4rem;
-  background: linear-gradient(145deg, #10131c, #0e1015 60%);
+  background: linear-gradient(145deg, #202327, #1c1e22 65%);
   text-align: center;
 }
 
@@ -88,12 +89,12 @@ body {
 }
 
 .hero .muted {
-  color: #adb3bf;
+  color: #b6bac4;
   max-width: 700px;
   margin: 0.5rem auto 0;
 }
 
-/* ---------- Section ---------- */
+/* ---------- Sections ---------- */
 .section {
   padding: 4rem 0;
 }
@@ -106,15 +107,21 @@ body {
 
 /* ---------- Cards ---------- */
 .card {
-  background: #161922;
-  border: 1px solid #1f232e;
+  background: #26292f;
+  border: 1px solid #32363d;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card h2 {
-  color: #00c7b7;
+  color: #9bb0c8;
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
@@ -122,15 +129,15 @@ body {
 .list {
   list-style: disc;
   margin-left: 1.2rem;
-  color: #d4d7dd;
+  color: #d6d9df;
 }
 
-/* ---------- Buttons, Badges ---------- */
+/* ---------- Badges ---------- */
 .badge {
   display: inline-block;
-  background: #00c7b7;
-  color: #0e1015;
-  padding: 0.25rem 0.7rem;
+  background: #9bb0c8;
+  color: #1c1e22;
+  padding: 0.3rem 0.8rem;
   border-radius: 6px;
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -140,15 +147,15 @@ body {
 
 /* ---------- Footer ---------- */
 .foot {
-  background: #151821;
-  border-top: 1px solid #222630;
-  color: #9ea3ad;
+  background: #23262b;
+  border-top: 1px solid #2e3238;
+  color: #9ca1aa;
   padding: 2.5rem 0;
   font-size: 0.9rem;
 }
 
 .foot a {
-  color: #00c7b7;
+  color: #9bb0c8;
   text-decoration: none;
 }
 
@@ -156,11 +163,12 @@ body {
   text-decoration: underline;
 }
 
+/* ---------- Utility ---------- */
 .text-right {
   text-align: right;
 }
 
-/* ---------- Small Screen Adjustments ---------- */
+/* ---------- Responsive ---------- */
 @media (max-width: 700px) {
   .nav-inner {
     flex-direction: column;
