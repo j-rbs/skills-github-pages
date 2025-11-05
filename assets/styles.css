@@ -100,3 +100,52 @@ img{display:block;max-width:100%}
 :focus-visible{outline:2px solid transparent;box-shadow:0 0 0 3px rgba(76,139,245,.35);border-radius:8px}
 @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
 @media (max-width:700px){.menu{gap:1rem}}
+
+/* ===== Mobile header fix (iOS Safari safe) ===== */
+.nav-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.5rem;
+  flex-wrap:wrap;                /* allow wrap */
+}
+
+/* neutralize any absolute positioning that may exist */
+.nav .brand{
+  position:static !important;    /* hard override */
+  display:flex;
+  align-items:center;
+  gap:.5rem;
+  min-width:0;
+  white-space:nowrap;            /* keeps "Rubin Cyber" on one line */
+}
+
+.nav .menu{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  min-width:0;                   /* prevents overflow issues in flex */
+}
+
+/* Stack brand above menu on narrow widths */
+@media (max-width: 640px){
+  .nav .brand{ 
+    flex:1 1 100%; 
+    margin-bottom:.5rem; 
+    order:1; 
+  }
+  .nav .menu{ 
+    flex:1 1 100%; 
+    order:2; 
+    justify-content:flex-start; 
+    overflow-x:auto;             /* avoids wrap collisions on very small screens */
+    -webkit-overflow-scrolling:touch;
+  }
+  .nav .menu a{ 
+    flex:0 0 auto; 
+  }
+  .nav .menu .cta{               /* keep the button aligned to the right when space allows */
+    margin-left:auto;
+  }
+}
+
