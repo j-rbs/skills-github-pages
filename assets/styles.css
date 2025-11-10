@@ -32,7 +32,7 @@ img{display:block;max-width:100%}
 .container{width:90%;max-width:1100px;margin:0 auto}
 
 /* HEADER / NAV */
-.nav{position:sticky;top:0;z-index:10;background:var(--grey-850);border-bottom:1px solid var(--field-border);padding:12px 0}
+.nav{position:sticky;top:0;z-index:10;background:var(--grey-900);border-bottom:1px solid var(--field-border);padding:12px 0}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
 
 .brand{display:inline-flex;align-items:center;gap:.6rem;white-space:nowrap}
