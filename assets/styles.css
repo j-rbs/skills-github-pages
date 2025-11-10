@@ -246,3 +246,57 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(76,139,245,.15);
   outline: 0;
 }
+
+/* === Smooth fade at the bottom of the hero (for contact) === */
+.hero--fade {
+  position: relative;
+  background: transparent !important; /* show the global skyline */
+}
+.hero--fade::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px; /* overlap the next section a bit */
+  height: 140px;                   /* fade length; adjust to taste */
+  pointer-events: none;
+  /* dark-to-transparent gradient to avoid a hard edge */
+  background: linear-gradient(
+    to bottom,
+    rgba(28,30,34,0.92) 0%,
+    rgba(28,30,34,0.75) 40%,
+    rgba(28,30,34,0.40) 75%,
+    rgba(28,30,34,0.00) 100%
+  );
+  /* keep it above the skyline but below content */
+  z-index: 0;
+}
+/* ensure hero content sits above the fade */
+.hero--fade > * { position: relative; z-index: 1; }
+
+/* === Contact section: softer, less "blocky" panels === */
+/* slight glass effect to match your other sections’ softness */
+#contact .card {
+  background-color: rgba(38, 41, 47, 0.88) !important; /* slight translucency */
+  backdrop-filter: blur(4px);                           /* soften the skyline behind */
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* inputs: glassy but readable */
+#contact .input,
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+  background-color: rgba(31, 35, 41, 0.55) !important;
+  border: 1px solid rgba(255,255,255,0.06) !important;
+}
+#contact .input:focus,
+#contact input:focus,
+#contact textarea:focus {
+  background-color: rgba(31, 35, 41, 0.72) !important;
+  border-color: var(--blue) !important;
+  box-shadow: 0 0 0 3px rgba(76,139,245,.15);
+}
+
+/* spacing tweaks so the fade and the section flow nicely */
+#contact.section { padding-top: 28px; } /* reduce the gap after hero */
+
