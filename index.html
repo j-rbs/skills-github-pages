@@ -128,7 +128,30 @@
 </footer>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+  (function () {
+    const img = document.querySelector('.banner-image img');
+    if (!img) return;
+
+    const minOpacity = 0.25;   // how transparent it gets
+    const fadeDistance = 260;  // px to reach minOpacity
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function onScroll() {
+      const y = Math.max(0, window.scrollY);
+      const p = Math.min(1, y / fadeDistance);        // 0→1
+      const o = 1 - (1 - minOpacity) * p;             // 1→minOpacity
+      img.style.opacity = o.toFixed(3);
+
+      if (!prefersReduced) {
+        // tiny parallax nudge
+        img.style.transform = `translateY(${Math.min(10, y * 0.05)}px)`;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
 </script>
+
 </body>
 </html>
