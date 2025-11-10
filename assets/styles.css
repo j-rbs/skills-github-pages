@@ -36,8 +36,17 @@ img{display:block;max-width:100%}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
 
 .brand{display:inline-flex;align-items:center;gap:.6rem;white-space:nowrap}
-.brand .logo{width:24px;height:24px;border-radius:6px}
-.brand span{color:var(--blue);font-family:var(--font-logo);font-weight:700;font-style:italic;letter-spacing:-.015em}
+.brand .logo{width:48px;height:48px;border-radius:12px}
+.brand span {
+  color: var(--blue);
+  font-family: var(--font-logo);
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.015em;
+  font-size: 1.4rem; /* ← increase this number to make it larger */
+}
+
+
 
 /* Menu links */
 .menu{display:flex;align-items:center;gap:1.75rem;white-space:nowrap}
