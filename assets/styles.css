@@ -303,3 +303,14 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
   }
   h1{font-size:clamp(2rem,8vw,2.4rem)}
 }
+
+/* Give sections and paragraphs a touch more air */
+.section{padding-block: clamp(2.25rem, 7vw, 4.25rem)}
+p{line-height:1.75}
+
+/* Headings: slightly more separation from following text */
+h2 + p, h3 + p { margin-top: .35rem }
+
+/* Cards: a hair more internal padding for long copy */
+.card{padding: clamp(1.25rem, 2.2vw, 1.75rem)}
+
