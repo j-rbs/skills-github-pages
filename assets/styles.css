@@ -179,28 +179,45 @@ img{display:block;max-width:100%}
   list-style-type: circle;
 }
 
-/* Subtle site-wide skyline on dark background */
-body {
-  /* base color stays the same */
-  background-color: var(--bg);
+/* ===== Site-wide Melbourne skyline background ===== */
 
-  /* dark veil + skyline */
+/* Keep a solid fallback color */
+html, body {
+  min-height: 100dvh;
+  background: var(--bg) !important;
+}
+
+/* Fixed overlay behind the whole site */
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;         /* behind all content */
+  pointer-events: none;
+
+  /* Dark veil + skyline image (use RELATIVE path for project pages) */
   background-image:
     linear-gradient(rgba(28,30,34,0.90), rgba(28,30,34,0.90)),
-    url('./assets/melbourne-skyline.webp');
-
-  background-size: cover;        /* fill viewport */
-  background-position: center;   /* center focal point */
+    url("assets/melbourne-skyline.webp");
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 
-  /* keep contrast on dark themes; blend darkens bright areas */
+  /* Helps text contrast on lighter photos */
   background-blend-mode: multiply;
 }
 
-/* Optional: reduce parallax jank on mobile */
-@media (max-width: 800px) {
-  body { background-attachment: scroll; }
+/* Make the hero allow the global background through */
+.hero {
+  background: transparent !important;
 }
+
+/* Optional: if any other section has a solid background, let it be transparent */
+.section {
+  background: transparent;
+}
+
+/* Cards can stay solid for readability (you already have .card backgrounds) */
 
 
 
