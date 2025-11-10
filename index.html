@@ -51,6 +51,7 @@
   }
   </script>
 </head>
+
 <body>
 <header class="nav">
   <div class="container nav-inner">
@@ -66,43 +67,52 @@
     </nav>
   </div>
 </header>
+
 <section class="hero">
   <div class="container">
     <span class="badge">No-nonsense cybersecurity for growing businesses</span>
     <h1>Practical, stage-based cybersecurity consulting that fits your <em>stage, needs, and budget</em>.</h1>
-    <p>I help small to medium businesses avoid vendor hell and costly technical debt by creating clear cybersecurity roadmaps - from early foundations to mature controls—so your systems scale safely with the business.</p>
+    <p>I help small to medium businesses avoid vendor hell and costly technical debt by creating clear cybersecurity roadmaps — from early foundations to mature controls — so your systems scale safely with the business.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container grid three">
+    
+    <!-- 01 · Assess -->
     <article class="card">
-      <div class="kicker">01 · Early-Stage</div>
-      <h3>Kickstart Assessment  &amp;  Roadmap</h3>
+      <div class="kicker">01 · Assess</div>
+      <h3>Cybersecurity Posture Assessment &amp; Roadmap</h3>
       <ul class="list">
-        <li>Lightweight posture review</li>
-        <li>90-day action plan + 12-month roadmap</li>
-        <li>Tool shortlist (vendor-neutral)</li>
+        <li>Review of current governance, identity, data &amp; network security</li>
+        <li>Risk Register outlining key threats and business impacts</li>
+        <li>Asset &amp; Data Inventory for visibility of what’s being protected</li>
+        <li>Employee awareness &amp; training recommendations</li>
+        <li>Roadmap aligned to business goals (scaling, new markets, compliance, etc.)</li>
       </ul>
-      <p class="mono">Fixed fee · 1–3 weeks</p>
+      <p class="mono">Fixed fee · ~2 weeks</p>
     </article>
+
+    <!-- 02 · Build -->
     <article class="card">
       <div class="kicker">02 · Build</div>
       <h3>Foundations Implementation</h3>
       <ul class="list">
-        <li>MFA/SSO, least privilege</li>
-        <li>Endpoint  &amp;  cloud basics</li>
-        <li>Backups, logging, response</li>
+        <li>MFA &amp; SSO, least privilege, and access hygiene</li>
+        <li>Endpoint &amp; cloud protection essentials</li>
+        <li>Backups, logging, and response readiness</li>
       </ul>
       <p class="mono">Milestone based · 3–8 weeks</p>
     </article>
+
+    <!-- 03 · Evolve -->
     <article class="card">
       <div class="kicker">03 · Evolve</div>
-      <h3>Ongoing Advisory</h3>
+      <h3>Ongoing Advisory &amp; Improvement</h3>
       <ul class="list">
-        <li>Quarterly roadmap updates</li>
-        <li>Vendor evaluations  &amp;  integrations</li>
-        <li>Awareness  &amp;  incident drills</li>
+        <li>Quarterly posture reviews and roadmap updates</li>
+        <li>Vendor evaluations &amp; tool integrations</li>
+        <li>Awareness sessions &amp; incident response drills</li>
       </ul>
       <p class="mono">Retainer or ad-hoc</p>
     </article>
@@ -117,10 +127,15 @@
         Practical, stage-based cybersecurity consulting.<br>
         <span class="mono">© <span id="year"></span> Rubin Cyber · Melbourne, AU</span>
       </div>
-      <div style="text-align:right"><a class="pill" href="#top">Back to top ↑</a></div>
+      <div style="text-align:right">
+        <a class="pill" href="#top">Back to top ↑</a>
+      </div>
     </div>
   </div>
 </footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
