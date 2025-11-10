@@ -24,15 +24,30 @@
   <link rel="icon" type="image/svg+xml" href="./assets/icon.svg?v=12">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="./site.webmanifest">
-  <link rel="stylesheet" href="./assets/styles.css?v=19">
+  <link rel="stylesheet" href="./assets/styles.css?v=20">
 
   <style>
-    /* Small, page-local fix for the mobile header */
+    /* Mobile nav fix */
     .nav-inner { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; }
     @media (max-width:640px){
       .brand{ flex:1 1 100%; margin-bottom:.5rem; }
       .menu{ flex:1 1 100%; justify-content:flex-start; }
       .menu a{ margin-right:1rem; }
+    }
+
+    /* Remove card styling for the details area */
+    #contact .details {
+      color: var(--text);
+      padding: 1rem 0;
+      line-height: 1.8;
+    }
+    #contact .details h2 {
+      color: var(--blue);
+      margin-bottom: .5rem;
+    }
+    #contact .details ul {
+      list-style: disc;
+      margin-left: 1.5rem;
     }
   </style>
 
@@ -64,21 +79,21 @@
     </div>
   </header>
 
-  <!-- Hero with soft fade (CSS .hero--fade you added) -->
-  <section class="hero">
+  <!-- Hero -->
+  <section class="hero hero--fade">
     <div class="container">
       <span class="badge">Let’s talk</span>
       <h1>Tell me where you are today. We’ll map the next sensible steps.</h1>
     </div>
   </section>
 
-  <!-- Contact content wrapper (targets #contact styles in CSS) -->
+  <!-- Contact section -->
   <section id="contact" class="section">
-    <div class="container grid two">
-      <!-- Form panel as a card for consistent styling -->
+    <div class="container grid two" style="align-items:flex-start;">
+
+      <!-- Contact form in a card -->
       <div class="card form-card">
         <h2 style="margin-bottom:1rem;">Contact</h2>
-
         <form id="contact-form" action="https://formspree.io/f/xpwogvar" method="POST" novalidate>
           <div class="form-grid">
             <div>
@@ -104,15 +119,16 @@
         </form>
       </div>
 
-      <!-- Details side panel -->
-      <aside class="card">
+      <!-- Details printed directly on background -->
+      <div class="details">
         <h2>Details</h2>
-        <ul class="list">
+        <ul>
           <li>Based in Melbourne, AU</li>
           <li>Email: <a href="mailto:hello@rubincyber.com">hello@rubincyber.com</a></li>
           <li>ABN / ASIC details (when ready)</li>
         </ul>
-      </aside>
+      </div>
+
     </div>
   </section>
 
@@ -132,22 +148,18 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Secure Form Submission with Redirect
     (function () {
       const form = document.getElementById('contact-form');
       if (!form) return;
-
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
         const data = new FormData(form);
-
         try {
           const resp = await fetch(form.action, {
             method: 'POST',
             body: data,
             headers: { 'Accept': 'application/json' }
           });
-
           if (resp.ok) {
             window.location.href = './thank-you.html';
           } else {
