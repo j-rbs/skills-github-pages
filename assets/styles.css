@@ -20,7 +20,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-he
 img{display:block;max-width:100%}
 .container{width:90%;max-width:1100px;margin:0 auto}
 
-/* HEADER / NAV (SAFE VERSION) */
+/* HEADER / NAV */
 .nav{position:sticky;top:0;z-index:10;background:var(--grey-850);border-bottom:1px solid var(--field-border);padding:12px 0}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
 
@@ -28,26 +28,25 @@ img{display:block;max-width:100%}
 .brand .logo{width:24px;height:24px;border-radius:6px}
 .brand span{color:var(--blue);font-family:var(--font-logo);font-weight:700;font-style:italic;letter-spacing:-.015em}
 
-/* Menu links — NO ::after, just border-bottom */
+/* Menu links */
 .menu{display:flex;align-items:center;gap:1.75rem;white-space:nowrap}
 .menu a{font-weight:500;text-decoration:none;transition:color .2s ease,border-color .15s ease}
 .menu a.navlink{
   color:#CFD3DA;
   border-bottom:2px solid transparent;
-  padding-bottom:6px; /* gives room for underline */
+  padding-bottom:6px;
 }
 .menu a.navlink:hover,
 .menu a.navlink:focus{
   color:var(--blue);
   border-bottom-color:var(--blue);
 }
-/* Active page (via aria-current="page") */
 .menu a.navlink[aria-current="page"]{
   color:var(--blue);
   border-bottom-color:var(--blue);
 }
 
-/* CTA button — text dark on hover/press, white otherwise */
+/* CTA button */
 .menu .cta{
   background:var(--blue);
   color:#fff !important;
@@ -69,7 +68,7 @@ img{display:block;max-width:100%}
 /* SECTIONS / CARDS */
 .section{padding:48px 0}
 .grid{display:grid;gap:24px}
-.grid.one {display: grid;grid-template-columns: 1fr; gap: 2rem;}
+.grid.one {grid-template-columns: 1fr;gap:2rem}
 .grid.two{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 .grid.three{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
 .card{background:#26292F;border:1px solid var(--field-border);border-radius:12px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,.25);transition:transform .2s,box-shadow .2s}
@@ -95,76 +94,60 @@ img{display:block;max-width:100%}
 
 /* FOOTER */
 .foot{background:var(--grey-850);border-top:1px solid var(--field-border);color:#9CA1AA;padding:28px 0;font-size:.95rem}
-.foot a{color:var(--blue)} .foot a:hover{color:var(--blue-hover);text-decoration:underline}
+.foot a{color:var(--blue)} 
+.foot a:hover{color:var(--blue-hover);text-decoration:underline}
 
 /* ACCESSIBILITY */
 :focus-visible{outline:2px solid transparent;box-shadow:0 0 0 3px rgba(76,139,245,.35);border-radius:8px}
 @media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
 @media (max-width:700px){.menu{gap:1rem}}
 
-/* ===== Mobile header fix (iOS Safari safe) ===== */
-.nav-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:.5rem;
-  flex-wrap:wrap;                /* allow wrap */
+/* ===== Mobile header fix ===== */
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
+.nav .brand{position:static !important;display:flex;align-items:center;gap:.5rem;min-width:0;white-space:nowrap}
+.nav .menu{display:flex;align-items:center;gap:1rem;min-width:0}
+@media (max-width:640px){
+  .nav .brand{flex:1 1 100%;margin-bottom:.5rem;order:1}
+  .nav .menu{flex:1 1 100%;order:2;justify-content:flex-start;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .nav .menu a{flex:0 0 auto}
+  .nav .menu .cta{margin-left:auto}
 }
 
-/* neutralize any absolute positioning that may exist */
-.nav .brand{
-  position:static !important;    /* hard override */
-  display:flex;
-  align-items:center;
-  gap:.5rem;
-  min-width:0;
-  white-space:nowrap;            /* keeps "Rubin Cyber" on one line */
-}
-
-.nav .menu{
-  display:flex;
-  align-items:center;
-  gap:1rem;
-  min-width:0;                   /* prevents overflow issues in flex */
-}
-
-/* Stack brand above menu on narrow widths */
-@media (max-width: 640px){
-  .nav .brand{ 
-    flex:1 1 100%; 
-    margin-bottom:.5rem; 
-    order:1; 
-  }
-  .nav .menu{ 
-    flex:1 1 100%; 
-    order:2; 
-    justify-content:flex-start; 
-    overflow-x:auto;             /* avoids wrap collisions on very small screens */
-    -webkit-overflow-scrolling:touch;
-  }
-  .nav .menu a{ 
-    flex:0 0 auto; 
-  }
-  .nav .menu .cta{               /* keep the button aligned to the right when space allows */
-    margin-left:auto;
-  }
-}
-
-.about {
-  align-items: center;
-  gap: 3rem;
-}
-
-.about-text p {
-  margin-bottom: 1rem;
+/* === ABOUT PAGE === */
+.section.about {
   line-height: 1.6;
+  font-size: 1.05rem;
 }
 
-.about-photo img {
-  width: 100%;
-  max-width: 400px;
+.section.about .container {
+  max-width: 900px;
+}
+
+/* Floated image — text wraps around */
+.section.about .about-photo {
+  float: right;
+  width: 300px;
+  margin: 0 0 1.5rem 2rem;
   border-radius: 1rem;
   object-fit: cover;
   box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  shape-outside: inset(0 round 1rem);
 }
 
+/* Clear float */
+.section.about .container::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* Mobile layout */
+@media (max-width: 800px) {
+  .section.about .about-photo {
+    float: none;
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    width: 80%;
+    shape-outside: none;
+  }
+}

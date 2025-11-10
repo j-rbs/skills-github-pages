@@ -7,12 +7,11 @@
   <meta name="description" content="About Rubin Cyber and founder Julia Rubinstein."/>
   <link rel="icon" type="image/svg+xml" href="./assets/icon.svg?v=11">
   <link rel="stylesheet" href="./assets/styles.css?v=20">
-    <link rel="canonical" href="https://j-rbs.github.io/rubin-cyber-website/">
+  <link rel="canonical" href="https://j-rbs.github.io/rubin-cyber-website/">
   <meta name="theme-color" content="#1C1E22">
   <meta name="color-scheme" content="dark">
-  <meta name="description" content="Practical, stage-based cybersecurity consulting for growing businesses. Vendor-neutral roadmaps, budget-aware controls, and ongoing advisory.">
 
-  <!-- Open Graph (for LinkedIn, Facebook, etc.) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Rubin Cyber">
   <meta property="og:title" content="Rubin Cyber — Practical, no-nonsense cybersecurity">
@@ -22,17 +21,49 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
-  <!-- Twitter (X) -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Rubin Cyber — Practical, no-nonsense cybersecurity">
   <meta name="twitter:description" content="Stage-based roadmaps and advisory for SMBs and startups.">
   <meta name="twitter:image" content="https://j-rbs.github.io/rubin-cyber-website/assets/og-image.png">
 
-  <!-- App / icons -->
+  <!-- Icons & PWA -->
   <link rel="icon" type="image/svg+xml" href="./assets/icon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="./site.webmanifest">
+
+  <style>
+    /* === Editorial About Layout === */
+    .about {
+      line-height: 1.6;
+      font-size: 1.05rem;
+    }
+
+    .about .container {
+      max-width: 900px;
+    }
+
+    .about img.about-photo {
+      float: right;
+      width: 300px;
+      border-radius: 1rem;
+      margin: 0 0 1.5rem 2rem; /* top right bottom left */
+      object-fit: cover;
+      shape-outside: inset(0 round 1rem);
+    }
+
+    @media (max-width: 800px) {
+      .about img.about-photo {
+        float: none;
+        display: block;
+        margin: 0 auto 1.5rem auto;
+        width: 80%;
+        shape-outside: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
 <header class="nav">
   <div class="container nav-inner">
@@ -53,32 +84,24 @@
   <div class="container">
     <span class="badge">About Rubin Cyber</span>
     <h1>Practical, no-nonsense cybersecurity led by experience.</h1>
-    <p class="muted">Founded by <bold>Julia Rubinstein</bold> after four years of cybersecurity consulting in Germany (IBM and SVA). I collaborate directly with founders to align security with business growth, brand protection and budget.</p>
+    <p class="muted">Founded by <strong>Julia Rubinstein</strong> after four years of cybersecurity consulting in Germany (IBM and SVA). I collaborate directly with founders to align security with business growth, brand protection, and budget.</p>
   </div>
 </section>
 
 <section class="section about">
-  <div class="container grid two">
+  <div class="container">
+    <img class="about-photo" src="./assets/photo.JPG" alt="Photo of Julia Rubinstein, Cybersecurity Consultant">
 
-    <!-- Left: Story -->
-    <div class="about-text">
-      <h2>About Rubin Cyber</h2>
-      <p>Hi, I’m <strong>Julia Rubinstein</strong> — a cybersecurity consultant based in Melbourne, helping small and mid-sized businesses build practical, sustainable security foundations.</p>
+    <h2>About Rubin Cyber</h2>
+    <p>Hi, I’m <strong>Julia Rubinstein</strong> — a cybersecurity consultant based in Melbourne, helping small and mid-sized businesses build practical, sustainable security foundations.</p>
 
-      <p>My background is in <strong>cybersecurity operations and risk management</strong>, working with organizations that range from startups finding their footing to established teams modernizing their approach. I started Rubin Cyber to bring that expertise to businesses that don’t need enterprise-sized budgets — just clear guidance, realistic roadmaps, and someone who actually listens.</p>
+    <p>My background is in <strong>cybersecurity operations and risk management</strong>, working with organizations that range from startups finding their footing to established teams modernizing their approach. I started Rubin Cyber to bring that expertise to businesses that don’t need enterprise-sized budgets — just clear guidance, realistic roadmaps, and someone who actually listens.</p>
 
-      <p>My philosophy is simple: <em>security should enable growth, not get in its way.</em> Whether a company is scaling, entering new markets, or formalizing governance, my focus is always on aligning cybersecurity with the business’s real goals — not just compliance checklists.</p>
+    <p>My philosophy is simple: <em>security should enable growth, not get in its way.</em> Whether a company is scaling, entering new markets, or formalizing governance, my focus is always on aligning cybersecurity with the business’s real goals — not just compliance checklists.</p>
 
-      <p>When I’m not working with clients, you’ll usually find me digging into new tools, writing about security trends, or exploring Melbourne’s coffee scene.</p>
+    <p>When I’m not working with clients, you’ll usually find me digging into new tools, writing about security trends, or exploring Melbourne’s coffee scene.</p>
 
-      <p class="mono">Based in Melbourne · Working with clients across Australia</p>
-    </div>
-
-    <!-- Right: Photo -->
-    <div class="about-photo">
-      <img src="./assets/photo.JPG" alt="Photo of Julia Rubinstein, Cybersecurity Consultant">
-    </div>
-
+    <p class="mono">Based in Melbourne · Working with clients across Australia</p>
   </div>
 </section>
 
@@ -94,6 +117,9 @@
     </div>
   </div>
 </footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
