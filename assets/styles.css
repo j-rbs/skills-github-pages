@@ -175,3 +175,74 @@ body{
 
 /* Ensure cards (e.g., Details panel) remain solid */
 .card{background-color:#26292F !important}
+
+/* === Show skyline behind heroes on all pages === */
+.hero { 
+  background: transparent !important;   /* overrides the earlier solid gradient */
+}
+
+/* === Keep ONLY the contact hero solid for max contrast === */
+/* You'll add class="hero hero--solid" in contact.html (step 2) */
+.hero--solid {
+  background: linear-gradient(145deg,#202327,var(--bg) 65%) !important;
+}
+
+/* === Make inputs slightly transparent (text stays crisp) === */
+.input,
+input[type="text"],
+input[type="email"],
+textarea {
+  background-color: rgba(31, 35, 41, 0.55) !important;   /* subtle translucency */
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  color: var(--text) !important;
+}
+
+.input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: rgba(154, 162, 175, 0.9);
+}
+
+.input:focus,
+input:focus,
+textarea:focus {
+  background-color: rgba(31, 35, 41, 0.72) !important;   /* a touch less transparent on focus */
+  border-color: var(--blue) !important;
+  box-shadow: 0 0 0 3px rgba(76,139,245,.15);
+  outline: 0;
+}
+
+/* === 1) Show the skyline behind the hero on EVERY page === */
+.hero {
+  background: transparent !important;  /* overrides the earlier gradient */
+}
+
+/* === 2) Keep ONLY the contact hero solid === */
+.hero--solid {
+  background: linear-gradient(145deg, #202327, var(--bg) 65%) !important;
+}
+
+/* === 3) Inputs: translucent boxes, crisp text === */
+.input,
+input[type="text"],
+input[type="email"],
+textarea {
+  background-color: rgba(31, 35, 41, 0.55) !important;   /* subtle transparency */
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  color: var(--text) !important;
+}
+
+.input::placeholder,
+input::placeholder,
+textarea::placeholder {
+  color: rgba(154, 162, 175, 0.9);
+}
+
+.input:focus,
+input:focus,
+textarea:focus {
+  background-color: rgba(31, 35, 41, 0.72) !important;   /* a bit less transparent on focus */
+  border-color: var(--blue) !important;
+  box-shadow: 0 0 0 3px rgba(76,139,245,.15);
+  outline: 0;
+}
