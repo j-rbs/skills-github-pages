@@ -60,7 +60,12 @@ img{display:block;max-width:100%}
 .menu .cta:focus,.menu .cta:visited{background:var(--blue);color:#fff !important}
 
 /* HERO */
-.hero{padding:72px 0 40px;background:linear-gradient(145deg,#202327,var(--bg) 65%);text-align:center}
+.hero{
+  padding:72px 0 40px;
+  /* show global background through */
+  background:transparent;
+  text-align:center
+}
 .badge{display:inline-block;background:var(--blue);color:#0B0D13;padding:.42rem .9rem;border-radius:10px;font-size:.85rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .hero h1{margin-top:16px;font-size:clamp(2rem,4.6vw,3.2rem);font-weight:800;color:#fff;line-height:1.25;letter-spacing:-.01em}
 .hero p{color:var(--muted);max-width:760px;margin:.8rem auto 0}
@@ -114,148 +119,56 @@ img{display:block;max-width:100%}
 }
 
 /* === ABOUT PAGE === */
-.section.about {
-  line-height: 1.6;
-  font-size: 1.05rem;
-}
-
-.section.about .container {
-  max-width: 900px;
-}
+.section.about { line-height:1.6; font-size:1.05rem; }
+.section.about .container { max-width:900px; }
 
 /* Floated image — text wraps around */
-.section.about .about-photo {
-  float: right;
-  width: 300px;
-  margin: 0 0 1.5rem 2rem;
-  border-radius: 1rem;
-  object-fit: cover;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  shape-outside: inset(0 round 1rem);
+.section.about .about-photo{
+  float:right;width:300px;margin:0 0 1.5rem 2rem;border-radius:1rem;object-fit:cover;
+  box-shadow:0 8px 24px rgba(0,0,0,0.2);shape-outside:inset(0 round 1rem);
 }
 
 /* Clear float */
-.section.about .container::after {
-  content: "";
-  display: block;
-  clear: both;
-}
+.section.about .container::after{content:"";display:block;clear:both}
 
 /* Mobile layout */
-@media (max-width: 800px) {
-  .section.about .about-photo {
-    float: none;
-    display: block;
-    margin: 0 auto 1.5rem auto;
-    width: 80%;
-    shape-outside: none;
+@media (max-width:800px){
+  .section.about .about-photo{
+    float:none;display:block;margin:0 auto 1.5rem auto;width:80%;shape-outside:none;
   }
 }
-.section.about p {
-  margin-bottom: 1.2rem; /* adjust value to make gaps bigger or smaller */
-  line-height: 1.7;
-}
+.section.about p{margin-bottom:1.2rem;line-height:1.7}
 
 /* About page list indentation */
-.section.about ul.indented-list {
-  padding-left: 1.6rem !important;
-  margin-left: 0 !important;
-  list-style: disc outside !important;
-  margin-top: 0.25rem !important;
-  margin-bottom: 0.75rem !important;
+.section.about ul.indented-list{
+  padding-left:1.6rem !important;
+  margin-left:0 !important;
+  list-style:disc outside !important;
+  margin-top:.25rem !important;
+  margin-bottom:.75rem !important;
 }
-
-.section.about ul.indented-list li {
-  padding-left: 0.2rem;
-}
+.section.about ul.indented-list li{padding-left:.2rem}
 
 /* Optional: if the list sits too close to the photo */
-.section.about ul.indented-list.clear-right {
-  clear: right;
-}
-.section.about ul.indented-list ul {
-  margin-top: 0.3rem;
-  margin-left: 2.5rem;
-  list-style-type: circle;
-}
+.section.about ul.indented-list.clear-right{clear:right}
 
-/* ===== Site-wide Melbourne skyline background ===== */
-
-/* Keep a solid fallback color */
-html, body {
-  min-height: 100dvh;
-  background: var(--bg) !important;
+/* Nested list (certifications) with larger indent */
+.section.about ul.indented-list ul{
+  margin-top:.3rem;
+  margin-left:2.5rem;   /* increase for bigger indent */
+  list-style-type:circle;
 }
 
-/* Fixed overlay behind the whole site */
-html::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;         /* behind all content */
-  pointer-events: none;
-
-  /* Dark veil + skyline image (use RELATIVE path for project pages) */
-  background-image:
+/* ===== FINAL: Site-wide Melbourne skyline background ===== */
+body{
+  background:
     linear-gradient(rgba(28,30,34,0.90), rgba(28,30,34,0.90)),
-    url("./assets/melbourne-skyline.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  /* Helps text contrast on lighter photos */
-  background-blend-mode: multiply;
+    url("./assets/melbourne-skyline.webp")
+    center / cover no-repeat fixed !important;
 }
 
-/* Make the hero allow the global background through */
-.hero {
-  background: transparent !important;
-}
+/* Keep hero transparent so the skyline shows */
+.hero{background:transparent !important}
 
-/* Optional: if any other section has a solid background, let it be transparent */
-.section {
-  background: transparent;
-}
-
-/* Cards can stay solid for readability (you already have .card backgrounds) */
-
-/* ===== Site-wide Melbourne skyline background (works on all pages) ===== */
-
-/* 1) Make body the stacking context and keep a solid fallback color */
-body {
-  position: relative;            /* create stacking context */
-  background-color: var(--bg);   /* fallback if image fails */
-}
-
-/* 2) Fixed overlay sits behind all content but above the fallback color */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 0;                    /* no negative z-index */
-  pointer-events: none;
-
-  /* Use RELATIVE path on GitHub Project Pages (no leading slash) */
-  background-image:
-    linear-gradient(rgba(28,30,34,0.90), rgba(28,30,34,0.90)),
-    url("./assets/melbourne-skyline.webp");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-blend-mode: multiply;
-}
-
-/* 3) Ensure your actual content sits above the overlay */
-.nav, .section, .foot {
-  position: relative;
-  z-index: 1;
-}
-
-/* 4) Let the hero show the global overlay through */
-.hero {
-  background: transparent !important;
-}
-
-
-
-
+/* Ensure cards (e.g., Details panel) remain solid */
+.card{background-color:#26292F !important}
