@@ -476,3 +476,49 @@ p .btn, .card .btn {
 
 /* If you want the list to start below the floated photo, add class 'clear-right' to the UL */
 .section.about ul.indented-list.clear-right{ clear: right; }
+
+/* iOS/mobile: make the background visible */
+@media (max-width: 900px){
+  /* iOS Safari detection + mobile breakpoint */
+  @supports (-webkit-touch-callout: none) {
+    body{
+      /* remove problematic fixed background */
+      background-attachment: scroll, scroll !important;
+      background-position: center top, center top;
+      background-repeat: no-repeat, no-repeat;
+      background-size: cover, cover;
+
+      /* slightly lighter overlay so the image shows through */
+      background-image:
+        linear-gradient(rgba(28,30,34,0.88), rgba(28,30,34,0.88)),
+        url("./melbourne-skyline.webp");
+    }
+  }
+}
+/* Desktop: fixed background on its own layer */
+.bg-layer{
+  background:none !important; /* prevent double backgrounds */
+  position: relative;
+}
+.bg-layer::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(rgba(28,30,34,0.94), rgba(28,30,34,0.94)),
+    url("./melbourne-skyline.webp") center / cover no-repeat;
+  will-change: transform;
+}
+
+/* iOS/mobile: avoid fixed + lighten overlay */
+@media (max-width: 900px){
+  @supports (-webkit-touch-callout: none) {
+    .bg-layer::before{
+      position: absolute; /* behaves like scroll on mobile */
+      background:
+        linear-gradient(rgba(28,30,34,0.88), rgba(28,30,34,0.88)),
+        url("./melbourne-skyline.webp") center top / cover no-repeat;
+    }
+  }
+}
