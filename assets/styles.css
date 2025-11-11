@@ -433,3 +433,46 @@ p .btn, .card .btn {
 @media (min-width: 1100px) {
   .section.about .about-photo { margin-left: var(--space-9); }
 }
+
+/* === ABOUT PAGE — FIX BULLET "TABS" / HANGING INDENTS === */
+/* Clears global ul/ol padding and applies precise hanging bullets */
+.section.about ul.indented-list,
+.section.about ul.indented-list ul{
+  list-style: none;
+  padding-left: 0 !important;   /* override global padding */
+  margin-left: 0 !important;
+}
+
+/* Top-level items: consistent gutter + hanging indent */
+.section.about ul.indented-list > li{
+  position: relative;
+  padding-left: 1.15rem;        /* bullet gutter */
+  margin: .38rem 0;
+  line-height: var(--lh-relaxed);
+  text-indent: 0;               /* ensure wraps align with text edge */
+}
+.section.about ul.indented-list > li::before{
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: .15em;                   /* aligns bullet with first line cap-height */
+  color: var(--muted);
+  font-size: 1.05em;
+}
+
+/* Nested items: smaller step-in + open-circle marker */
+.section.about ul.indented-list ul > li{
+  position: relative;
+  padding-left: 1rem;
+  margin: .28rem 0;
+}
+.section.about ul.indented-list ul > li::before{
+  content: "○";
+  position: absolute;
+  left: 0;
+  top: .15em;
+  color: var(--muted);
+}
+
+/* If you want the list to start below the floated photo, add class 'clear-right' to the UL */
+.section.about ul.indented-list.clear-right{ clear: right; }
