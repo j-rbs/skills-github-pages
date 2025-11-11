@@ -14,20 +14,20 @@
   --font-logo:'Poppins','Inter',system-ui,Arial,sans-serif;
 
   /* Rhythm & Type */
-  --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem;
-  --space-5: 1.25rem; --space-6: 1.5rem; --space-7: 2rem; --space-8: 3rem;
-  --space-9: 4rem; --space-10: 5rem;
+  --space-1:.25rem; --space-2:.5rem; --space-3:.75rem; --space-4:1rem;
+  --space-5:1.25rem; --space-6:1.5rem; --space-7:2rem; --space-8:3rem;
+  --space-9:4rem; --space-10:5rem;
 
-  --lh-tight: 1.25; --lh-normal: 1.6; --lh-relaxed: 1.75;
+  --lh-tight:1.25; --lh-normal:1.6; --lh-relaxed:1.75;
 
-  --radius-sm: 8px; --radius-md: 10px; --radius-lg: 12px; --radius-xl: 16px;
+  --radius-sm:8px; --radius-md:10px; --radius-lg:12px; --radius-xl:16px;
 
-  --shadow-1: 0 4px 14px rgba(0,0,0,.25);
-  --shadow-2: 0 8px 20px rgba(0,0,0,.30);
+  --shadow-1:0 4px 14px rgba(0,0,0,.25);
+  --shadow-2:0 8px 20px rgba(0,0,0,.30);
 
   /* Readable measures */
-  --measure: 72ch;
-  --measure-narrow: 62ch;
+  --measure:72ch;
+  --measure-narrow:62ch;
 }
 
 /* RESET & BASE */
@@ -47,7 +47,7 @@ body{
 img{display:block;max-width:100%;height:auto}
 .container{width:min(1100px, 90%);margin-inline:auto}
 
-/* Global text rhythm */
+/* Typography & global rhythm */
 p{margin-block: var(--space-4); line-height: var(--lh-relaxed)}
 h1,h2,h3,h4{line-height:var(--lh-tight); margin-block: var(--space-5) var(--space-3)}
 h1{font-size:clamp(2rem,4.6vw,3.2rem); font-weight:800; letter-spacing:-.01em}
@@ -224,24 +224,36 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
 .section.about .container::after{content:"";display:block;clear:both}
 
 /* Prose */
-.section.about p{margin-block: var(--space-4); line-height: var(--lh-relaxed); max-width: var(--measure)}
-
-/* Bullets: visually further right than prose on desktop, normal on mobile */
-.section.about ul.indented-list{
-  list-style: disc outside;
-  padding-left: 1.2rem;         /* keep proper bullets */
-  margin: .25rem 0 .75rem 2.4rem; /* <-- extra left offset to push right */
+.section.about p{
+  margin-block: var(--space-4);
+  line-height: var(--lh-relaxed);
   max-width: var(--measure);
 }
-.section.about ul.indented-list li{padding-left:.2rem}
+
+/* -------- BULLETS (single marker, deeper visual indent) -------- */
+/* IMPORTANT: no custom ::before bullets anywhere to avoid duplication */
+.section.about ul.indented-list{
+  list-style: disc outside;     /* native bullets */
+  padding-left: 1.2rem;         /* standard bullet gutter */
+  margin-top:.25rem;
+  margin-bottom:.75rem;
+  margin-left: 2.2rem;          /* EXTRA offset so they sit further right than prose */
+  max-width: var(--measure);
+}
+.section.about ul.indented-list li{
+  margin: .4rem 0;
+  line-height: var(--lh-relaxed);
+}
 .section.about ul.indented-list ul{
-  margin-top:.3rem; margin-left:2.8rem; list-style-type:circle;
+  list-style: circle;
+  margin-top:.3rem;
+  margin-left: 1.8rem;          /* nested step-in */
 }
 
-/* Optional: if the list sits too close to the photo */
-.section.about ul.indented-list.clear-right{clear:right}
+/* If the list crowded the photo, you can add class 'clear-right' on the UL */
+.section.about ul.indented-list.clear-right{ clear: right; }
 
-/* Mobile: revert the extra offset so it doesn’t look cramped */
+/* Mobile: normal indentation so it doesn't look cramped */
 @media (max-width:800px){
   .section{padding-block: var(--space-7)}
   .grid{gap: var(--space-5)}
@@ -249,14 +261,14 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
     float:none;display:block;margin:0 auto var(--space-6) auto;width:80%;shape-outside:none;
   }
   h1{font-size:clamp(2rem,8vw,2.4rem)}
-  .section.about ul.indented-list{ margin-left: 1.2rem; }  /* normal indent on small screens */
+  .section.about ul.indented-list{ margin-left: 1.2rem; }
 }
 
 /* Headings: slightly more separation from following text */
 h2 + p, h3 + p { margin-top: .35rem }
 
 /* ===========================
-   Background reliability on iOS (and a lighter overlay on mobile)
+   iOS/mobile background reliability
    =========================== */
 @media (max-width: 900px){
   @supports (-webkit-touch-callout: none) {
