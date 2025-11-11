@@ -378,4 +378,35 @@ button[type="submit"] {
     padding: 1rem 1.3rem;
   }
 }
+/* === Mobile nav: keep CTA fully visible === */
+@media (max-width: 640px){
+  /* 1) Stop horizontal scrolling that clips the CTA */
+  .nav .menu{
+    overflow: visible !important;      /* was overflow-x:auto */
+    flex-wrap: wrap;                    /* allow items to wrap if needed */
+    gap: .9rem;
+    padding-right: calc(env(safe-area-inset-right) + 12px); /* respect iOS safe area */
+  }
+
+  /* 2) Ensure the CTA sits on the right and never gets cropped */
+  .nav .menu .cta{
+    margin-left: auto;                  /* push to the right within wrapped row */
+    margin-right: 0;
+    flex: 0 0 auto;                     /* prevent shrinking */
+    font-size: 1rem;                    /* readable on small screens */
+    padding: .62rem 1rem;               /* compact but tappable */
+  }
+
+  /* 3) Give the bar enough height so nothing touches edges */
+  .nav{
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    padding-left: calc(env(safe-area-inset-left) + 12px);
+    padding-right: calc(env(safe-area-inset-right) + 12px);
+  }
+  .nav-inner{
+    min-height: 60px;                   /* guarantees room for the CTA */
+    align-items: center;
+  }
+}
 
