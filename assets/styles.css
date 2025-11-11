@@ -235,7 +235,7 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
 .section.about ul.indented-list{
   list-style: disc outside;     /* native bullets */
   padding-left: 1.2rem;         /* standard bullet gutter */
-  margin-top:.25rem;
+  margin-top:.15rem;
   margin-bottom:.75rem;
   margin-left: 2.2rem;          /* EXTRA offset so they sit further right than prose */
   max-width: var(--measure);
@@ -265,7 +265,7 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
 }
 
 /* Headings: slightly more separation from following text */
-h2 + p, h3 + p { margin-top: .25rem }
+h2 + p, h3 + p { margin-top: .15rem }
 
 /* ===========================
    iOS/mobile background reliability
