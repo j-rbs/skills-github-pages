@@ -13,29 +13,21 @@
   --font-body:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
   --font-logo:'Poppins','Inter',system-ui,Arial,sans-serif;
 
-  /* === Rhythm & Type Scale === */
-  --space-1: 0.25rem;   /* 4px  */
-  --space-2: 0.5rem;    /* 8px  */
-  --space-3: 0.75rem;   /* 12px */
-  --space-4: 1rem;      /* 16px */
-  --space-5: 1.25rem;   /* 20px */
-  --space-6: 1.5rem;    /* 24px */
-  --space-7: 2rem;      /* 32px */
-  --space-8: 3rem;      /* 48px */
-  --space-9: 4rem;      /* 64px */
-  --space-10: 5rem;     /* 80px */
+  /* Rhythm & Type */
+  --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem;
+  --space-5: 1.25rem; --space-6: 1.5rem; --space-7: 2rem; --space-8: 3rem;
+  --space-9: 4rem; --space-10: 5rem;
 
-  --lh-tight: 1.25;
-  --lh-normal: 1.6;
-  --lh-relaxed: 1.75;
+  --lh-tight: 1.25; --lh-normal: 1.6; --lh-relaxed: 1.75;
 
-  --radius-sm: 8px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
+  --radius-sm: 8px; --radius-md: 10px; --radius-lg: 12px; --radius-xl: 16px;
 
   --shadow-1: 0 4px 14px rgba(0,0,0,.25);
   --shadow-2: 0 8px 20px rgba(0,0,0,.30);
+
+  /* Readable measures */
+  --measure: 72ch;
+  --measure-narrow: 62ch;
 }
 
 /* RESET & BASE */
@@ -69,6 +61,7 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
   background:var(--grey-900);
   border-bottom:1px solid var(--field-border);
   padding-block:12px;
+  box-shadow:0 1px 0 rgba(255,255,255,0.06);
 }
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:inline-flex;align-items:center;gap:.6rem;white-space:nowrap}
@@ -83,13 +76,8 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
 /* Menu links */
 .menu{display:flex;align-items:center;gap:1.75rem;white-space:nowrap}
 .menu a{font-weight:500;text-decoration:none;transition:color .2s ease,border-color .15s ease}
-.menu a.navlink{
-  color:#CFD3DA;
-  border-bottom:2px solid transparent;
-  padding-bottom:6px;
-}
-.menu a.navlink:hover,
-.menu a.navlink:focus{color:var(--blue);border-bottom-color:var(--blue)}
+.menu a.navlink{color:#CFD3DA;border-bottom:2px solid transparent;padding-bottom:6px}
+.menu a.navlink:hover,.menu a.navlink:focus{color:var(--blue);border-bottom-color:var(--blue)}
 .menu a.navlink[aria-current="page"]{color:var(--blue);border-bottom-color:var(--blue)}
 
 /* CTA button */
@@ -132,8 +120,8 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
 .hero--fade > *{position:relative;z-index:1}
 
 /* SECTIONS / GRID */
-.section{padding-block: clamp(var(--space-7), 7vw, var(--space-9))}
-.grid{display:grid;gap: var(--space-6)}
+.section{padding-block: clamp(2.5rem, 7.5vw, 5rem)}
+.grid{display:grid;gap: clamp(1.25rem, 2.5vw, 2rem)}
 .grid.one {grid-template-columns:1fr}
 .grid.two{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
 .grid.three{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
@@ -144,15 +132,11 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
   backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   border:1px solid rgba(255,255,255,0.06);
   border-radius:var(--radius-lg);
-  padding: clamp(var(--space-6), 2.2vw, var(--space-7));
+  padding: clamp(1.4rem, 2.4vw, 2rem);
   box-shadow:var(--shadow-1);
   transition:transform .2s,box-shadow .2s, background .2s;
 }
-.card:hover{
-  transform:translateY(-3px);
-  box-shadow:var(--shadow-2);
-  background: rgba(38,41,47,0.78);
-}
+.card:hover{transform:translateY(-3px); box-shadow:var(--shadow-2); background: rgba(38,41,47,0.78)}
 .card h2,.card h3{color:var(--text)}
 .card h2{color:var(--blue); margin-bottom:.75rem}
 .kicker{color:#AEB4BF;font-size:.95rem;margin-bottom:.35rem}
@@ -189,71 +173,33 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
 .btn:active, button:active{background:var(--blue);transform:none}
 
 /* FOOTER */
-.foot {
-  background: var(--grey-850);
-  border-top: 1px solid var(--field-border);
-  color: #9CA1AA;
-  font-size: 0.95rem;
+.foot{
+  background:var(--grey-850);
+  border-top:1px solid var(--field-border);
+  color:#9CA1AA;
+  font-size:.95rem;
   padding-block: var(--space-7);
-  text-align: center;
+  text-align:center;
 }
-
-/* Center and space footer content */
-.foot .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
+.foot .container{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
 }
-
-/* Text and link styling */
-.foot a {
-  color: var(--blue);
-  text-decoration: none;
-  font-weight: 500;
+.foot a{color:var(--blue);text-decoration:none;font-weight:500}
+.foot a:hover{color:var(--blue-hover);text-decoration:underline}
+.foot p{margin:.3rem 0}
+.foot .btn{
+  padding:.55rem 1rem;font-size:.95rem;background:transparent;border:1px solid var(--field-border);
+  color:var(--blue);font-weight:600;border-radius:var(--radius-md);
+  transition:background .15s ease,border-color .15s ease,color .15s ease,transform .08s ease;
 }
-
-.foot a:hover {
-  color: var(--blue-hover);
-  text-decoration: underline;
-}
-
-.foot p {
-  margin: 0.3rem 0;
-}
-
-/* Compact CTA button inside footer */
-.foot .btn {
-  padding: 0.55rem 1rem;
-  font-size: 0.95rem;
-  background: transparent;
-  border: 1px solid var(--field-border);
-  color: var(--blue);
-  font-weight: 600;
-  border-radius: var(--radius-md);
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.08s ease;
-}
-
-.foot .btn:hover {
-  background: rgba(76,139,245,0.12);
-  border-color: rgba(76,139,245,0.35);
-  color: var(--blue-hover);
-  transform: translateY(-1px);
-}
-
-/* Responsive tweak */
-@media (max-width:700px){
-  .foot .container {
-    gap: 0.5rem;
-  }
-}
+.foot .btn:hover{background:rgba(76,139,245,0.12);border-color:rgba(76,139,245,0.35);color:var(--blue-hover);transform:translateY(-1px)}
+@media (max-width:700px){.foot .container{gap:.5rem}}
 
 /* ACCESSIBILITY */
 :focus-visible{outline:2px solid transparent;box-shadow:0 0 0 3px rgba(76,139,245,.35);border-radius:8px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
-/* ===== Responsive Nav tweaks ===== */
+/* Responsive Nav tweaks */
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
 .nav .brand{position:static!important;display:flex;align-items:center;gap:.5rem;min-width:0;white-space:nowrap}
 .nav .menu{display:flex;align-items:center;gap:1rem;min-width:0}
@@ -268,33 +214,34 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
 /* === ABOUT PAGE === */
 .section.about{ font-size:1.05rem }
 .section.about .container{ max-width:900px }
+
+/* Floated image — keep as-is */
 .section.about .about-photo{
   float:right;width:300px;margin:0 0 var(--space-6) var(--space-7);
   border-radius:1rem;object-fit:cover;
   box-shadow:0 8px 24px rgba(0,0,0,0.2);shape-outside:inset(0 round 1rem);
 }
 .section.about .container::after{content:"";display:block;clear:both}
-.section.about p{margin-block: var(--space-4); line-height: var(--lh-relaxed)}
+
+/* Prose */
+.section.about p{margin-block: var(--space-4); line-height: var(--lh-relaxed); max-width: var(--measure)}
+
+/* Bullets: visually further right than prose on desktop, normal on mobile */
 .section.about ul.indented-list{
-  padding-left:1.6rem!important;
-  margin-left:0!important;
-  list-style:disc outside!important;
-  margin-top:.25rem!important;
-  margin-bottom:.75rem!important;
+  list-style: disc outside;
+  padding-left: 1.2rem;         /* keep proper bullets */
+  margin: .25rem 0 .75rem 2.4rem; /* <-- extra left offset to push right */
+  max-width: var(--measure);
 }
 .section.about ul.indented-list li{padding-left:.2rem}
-.section.about ul.indented-list.clear-right{clear:right}
 .section.about ul.indented-list ul{
-  margin-top:.3rem; margin-left:2.5rem; list-style-type:circle;
+  margin-top:.3rem; margin-left:2.8rem; list-style-type:circle;
 }
 
-/* === Utilities === */
-.mt-0{margin-top:0!important}
-.mb-0{margin-bottom:0!important}
-.mt-4{margin-top:var(--space-4)!important}
-.mb-4{margin-bottom:var(--space-4)!important}
+/* Optional: if the list sits too close to the photo */
+.section.about ul.indented-list.clear-right{clear:right}
 
-/* === Mobile layout adjustments === */
+/* Mobile: revert the extra offset so it doesn’t look cramped */
 @media (max-width:800px){
   .section{padding-block: var(--space-7)}
   .grid{gap: var(--space-5)}
@@ -302,243 +249,44 @@ ul,ol{padding-left:1.2rem; margin-block: var(--space-3)}
     float:none;display:block;margin:0 auto var(--space-6) auto;width:80%;shape-outside:none;
   }
   h1{font-size:clamp(2rem,8vw,2.4rem)}
+  .section.about ul.indented-list{ margin-left: 1.2rem; }  /* normal indent on small screens */
 }
-
-/* Give sections and paragraphs a touch more air */
-.section{padding-block: clamp(2.25rem, 7vw, 4.25rem)}
-p{line-height:1.75}
 
 /* Headings: slightly more separation from following text */
 h2 + p, h3 + p { margin-top: .35rem }
 
-/* Cards: a hair more internal padding for long copy */
-.card{padding: clamp(1.25rem, 2.2vw, 1.75rem)}
-
 /* ===========================
-   BOUTIQUE SPACING & LAYOUT POLISH
-   (paste after your current CSS)
+   Background reliability on iOS (and a lighter overlay on mobile)
    =========================== */
-
-/* 1) Comfortable reading width for long text */
-:root {
-  --measure: 72ch;            /* ideal paragraph width */
-  --measure-narrow: 62ch;     /* use for ledes / intros */
-}
-
-/* Apply readable measure to body copy inside containers */
-.section .container > p,
-.section .container > ul,
-.section .container > ol {
-  max-width: var(--measure);
-  margin-inline: auto;
-}
-
-/* Optional narrower measure for intro paragraphs (add class="lede" to a p) */
-.lede {
-  max-width: var(--measure-narrow);
-  margin-inline: auto;
-  font-size: 1.06rem;
-  line-height: var(--lh-relaxed);
-  color: var(--muted);
-}
-
-/* 2) Section rhythm: more air between big blocks on larger screens */
-.section {
-  padding-block: clamp(2.5rem, 7.5vw, 5rem); /* a touch larger than before */
-}
-
-/* Subtle visual separation without lines */
-.section + .section {
-  scroll-margin-top: 6rem; /* nicer anchor jumps under sticky nav */
-}
-
-/* 3) Headings & adjacent content spacing */
-h1, h2, h3 {
-  letter-spacing: -0.012em;
-}
-h2 { margin-bottom: 0.9rem; }
-h3 { margin-bottom: 0.6rem; }
-
-/* When a paragraph follows a heading, add a little extra space */
-h1 + p, h2 + p, h3 + p { margin-top: 0.5rem; }
-
-/* 4) Card polish: tighter title, roomier body */
-.card {
-  padding: clamp(1.4rem, 2.4vw, 2rem); /* slightly roomier */
-}
-.card h2, .card h3 { margin-bottom: 0.55rem; }
-.card p + p { margin-top: 0.6rem; }       /* gentle paragraph stacking */
-.card .list { margin-top: 0.5rem; }       /* list starts a touch lower */
-
-/* 5) Grid spacing tuned for desktop (less cramped, but not wasteful) */
-.grid { gap: clamp(1.25rem, 2.5vw, 2rem); }
-@media (min-width: 1024px) {
-  .grid.two   { gap: clamp(1.5rem, 2.2vw, 2.25rem); }
-  .grid.three { gap: clamp(1.5rem, 2.2vw, 2.25rem); }
-}
-
-/* 6) Hero balance: limit line length and give copy some breathing room */
-.hero h1,
-.hero p {
-  max-width: var(--measure-narrow);
-  margin-left: auto;
-  margin-right: auto;
-}
-.hero p { margin-top: 0.9rem; }
-
-/* Optional: a smidge more space before the next section on wide viewports */
-@media (min-width: 900px) {
-  .hero { padding-bottom: clamp(3rem, 6vw, 4.5rem); }
-}
-
-/* 7) Navigation micro-polish: faint shadow for depth on scroll */
-.nav {
-  box-shadow: 0 1px 0 rgba(255,255,255,0.06);
-}
-
-/* 8) Footer: balanced vertical rhythm & consistent measure */
-.foot .container > p,
-.foot .container > div {
-  max-width: var(--measure);
-  margin-inline: auto;
-}
-.foot .btn {
-  margin-top: 0.3rem; /* a little breathing room from links/copy */
-}
-
-/* 9) Utility: elegant vertical stacking for ad-hoc groups
-   (wrap a group in .stack to get consistent vertical rhythm) */
-.stack > * + * {
-  margin-top: clamp(0.5rem, 1.2vw, 0.85rem);
-}
-
-/* 10) Lists: boutique spacing—clear but not bulky */
-ul, ol {
-  margin-block: 0.6rem 0.9rem;
-}
-li + li {
-  margin-top: 0.35rem;
-}
-
-/* 11) Buttons in content: consistent outside spacing when inline in text */
-p .btn, .card .btn {
-  margin-top: 0.4rem;
-}
-
-/* 12) About page: keep prose centered, image gets a bit more air on wide screens */
-.section.about .container > p,
-.section.about .indented-list {
-  max-width: var(--measure);
-}
-@media (min-width: 1100px) {
-  .section.about .about-photo { margin-left: var(--space-9); }
-}
-
-/* === ABOUT PAGE — FIX BULLET "TABS" / HANGING INDENTS === */
-/* Clears global ul/ol padding and applies precise hanging bullets */
-.section.about ul.indented-list,
-.section.about ul.indented-list ul{
-  list-style: none;
-  padding-left: 0 !important;   /* override global padding */
-  margin-left: 0 !important;
-}
-
-/* Top-level items: consistent gutter + hanging indent */
-.section.about ul.indented-list > li{
-  position: relative;
-  padding-left: 1.15rem;        /* bullet gutter */
-  margin: .38rem 0;
-  line-height: var(--lh-relaxed);
-  text-indent: 0;               /* ensure wraps align with text edge */
-}
-.section.about ul.indented-list > li::before{
-  content: "•";
-  position: absolute;
-  left: 0;
-  top: .15em;                   /* aligns bullet with first line cap-height */
-  color: var(--muted);
-  font-size: 1.05em;
-}
-
-/* Nested items: smaller step-in + open-circle marker */
-.section.about ul.indented-list ul > li{
-  position: relative;
-  padding-left: 1rem;
-  margin: .28rem 0;
-}
-.section.about ul.indented-list ul > li::before{
-  content: "○";
-  position: absolute;
-  left: 0;
-  top: .15em;
-  color: var(--muted);
-}
-
-/* If you want the list to start below the floated photo, add class 'clear-right' to the UL */
-.section.about ul.indented-list.clear-right{ clear: right; }
-
-/* iOS/mobile: make the background visible */
 @media (max-width: 900px){
-  /* iOS Safari detection + mobile breakpoint */
   @supports (-webkit-touch-callout: none) {
     body{
-      /* remove problematic fixed background */
       background-attachment: scroll, scroll !important;
       background-position: center top, center top;
       background-repeat: no-repeat, no-repeat;
       background-size: cover, cover;
-
-      /* slightly lighter overlay so the image shows through */
       background-image:
         linear-gradient(rgba(28,30,34,0.88), rgba(28,30,34,0.88)),
         url("./melbourne-skyline.webp");
     }
   }
 }
-/* Desktop: fixed background on its own layer */
-.bg-layer{
-  background:none !important; /* prevent double backgrounds */
-  position: relative;
-}
+
+/* Optional: background on its own layer for desktops that like 'fixed' */
+.bg-layer{ background:none!important; position:relative; }
 .bg-layer::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
+  content:""; position:fixed; inset:0; z-index:-1;
   background:
     linear-gradient(rgba(28,30,34,0.94), rgba(28,30,34,0.94)),
     url("./melbourne-skyline.webp") center / cover no-repeat;
-  will-change: transform;
 }
-
-/* iOS/mobile: avoid fixed + lighten overlay */
 @media (max-width: 900px){
   @supports (-webkit-touch-callout: none) {
     .bg-layer::before{
-      position: absolute; /* behaves like scroll on mobile */
+      position:absolute;
       background:
         linear-gradient(rgba(28,30,34,0.88), rgba(28,30,34,0.88)),
         url("./melbourne-skyline.webp") center top / cover no-repeat;
     }
   }
-}
-/* === ABOUT PAGE: adjust bullet indentation === */
-
-/* Increase indentation for the top-level bullet list */
-.section.about ul.indented-list {
-  padding-left: 2.25rem !important; /* deeper indent (was ~1.6rem) */
-  margin-left: 0 !important;
-  list-style: disc outside !important;
-}
-
-/* Slightly increase indentation for nested bullets too */
-.section.about ul.indented-list ul {
-  margin-left: 2.75rem !important;  /* adds more visual offset */
-  list-style-type: circle;
-}
-
-/* Optional: add a bit more vertical rhythm for breathing room */
-.section.about ul.indented-list li {
-  margin: 0.45rem 0;
-  line-height: var(--lh-relaxed);
 }
